@@ -28,12 +28,12 @@ function searchForCity(city) {
         // create a var to store Humidity
         var humidity = (response.main.humidity)
         // create var to change Kelvin to Far
-        var currentTemp = (((response.main.temp) - 273) * 1.8 +32)
+        var currentTemp = Math.round(((response.main.temp) - 273) * 1.8 +32)
         //  var for weather icon
         var weatherIcon = (response.weather[0].icon)
         console.log(response.weather[0].icon)
         // var for wind speed might need to convert to mph and chop the last 3 digits
-        var windSpeed = ((response.wind.speed)*2.237)
+        var windSpeed = Math.round((response.wind.speed)*2.237)
         // see below around line 50 for the var for the uv index
         
         // console.log(windSpeed)
@@ -71,12 +71,51 @@ function searchForCity(city) {
     }).then(function (response) {
         console.log(response)
 
+        // create var for temp icon, temp, and humidity
+        var day1Date = (response.list[4].dt_txt)
+        var day1Temp = Math.round(((response.list[4].main.temp) -273) *1.8 +32)
+        var day1Humidity = Math.round(response.list[4].main.humidity)
+        var day2Temp = Math.round(((response.list[12].main.temp) -273) *1.8 +32)
+        var day2Humidity = Math.round(response.list[12].main.humidity)
+        var day3Temp= Math.round(((response.list[20].main.temp) -273) *1.8 +32)
+        var day3Humidity = Math.round(response.list[20].main.humidity)
+        var day4Temp = Math.round(((response.list[28].main.temp) -273) *1.8 +32)
+        var day4Humidity = Math.round(response.list[28].main.humidity)
+        var day5Temp = Math.round(((response.list[36].main.temp) -273) *1.8 +32)
+        var day5Humidity = Math.round(response.list[36].main.humidity)
+        var day1Temp = Math.round(((response.list[4].main.temp) -273) *1.8 +32)
+        var day1Humidity = Math.round(response.list[4].main.humidity)
+        
+        console.log
+        // console.log(day1Temp, day2Temp, day3Temp, day4Temp, day5Temp)
         $("#forecast-cards").empty()
         for (var i = 0; i < 5; i++) {
-            var card = $("<div>").addClass("bg-primary col text-light").text(i)
-
+            var card = $("<div>").addClass("bg-primary col text-light").addClass(`card${i}`);
+                  
             $("#forecast-cards").append(card)
+           
         }
+        // created and appended temp, date and humidity.  need to adjust the temp and humidity to .00 digits and also
+        // we pulled the day1DateDiv but it needs to be adjusted for proper formatting
+
+        var day1DateDiv = $("<h5>").text(day1Date);
+
+        var day1TempDiv = $("<h5>").text("Temp: " + day1Temp + " \u00B0" + "F");
+        var day1HumidityDiv = $("<h5>").text("Humidity: " + day1Humidity +  "%");
+        var day2TempDiv = $("<h5>").text("Temp: " + day2Temp + " \u00B0" + "F");
+        var day2HumidityDiv = $("<h5>").text("Humidity: " + day2Humidity +  "%");
+        var day3TempDiv = $("<h5>").text("Temp: " + day3Temp + " \u00B0" + "F");
+        var day3HumidityDiv = $("<h5>").text("Humidity: " + day3Humidity +  "%");
+        var day4TempDiv = $("<h5>").text("Temp: " + day4Temp + " \u00B0" + "F");
+        var day4HumidityDiv = $("<h5>").text("Humidity: " + day4Humidity +  "%");
+        var day5TempDiv = $("<h5>").text("Temp: " + day5Temp + " \u00B0" + "F");
+        var day5HumidityDiv = $("<h5>").text("Humidity: " + day5Humidity +  "%");
+
+        $(".card0").append(day1DateDiv, day1TempDiv, day1HumidityDiv)
+        $(".card1").append(day2TempDiv, day2HumidityDiv)
+        $(".card2").append(day3TempDiv, day3HumidityDiv)
+        $(".card3").append(day4TempDiv, day4HumidityDiv)
+        $(".card4").append(day5TempDiv, day5HumidityDiv)
 
     })
 }

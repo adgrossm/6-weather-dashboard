@@ -24,6 +24,7 @@ function searchForCity(city) {
         method: "GET"
     }).then(function (response) {
         console.log(response)
+        // code to empty jumbotron content with new city info
         $(".jumbotron").empty()
         // create a var to store Humidity
         var humidity = (response.main.humidity)
@@ -102,7 +103,7 @@ function searchForCity(city) {
         // console.log(day1Temp, day2Temp, day3Temp, day4Temp, day5Temp)
         $("#forecast-cards").empty()
         for (var i = 0; i < 5; i++) {
-            var card = $("<div>").addClass("bg-primary col text-light").addClass(`card${i}`);
+            var card = $("<div>").addClass("bg-primary col text-light mr-1").addClass(`card${i}`);
                   
             $("#forecast-cards").append(card)
            

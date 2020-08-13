@@ -73,18 +73,30 @@ function searchForCity(city) {
 
         // create var for temp icon, temp, and humidity
         var day1Date = (response.list[4].dt_txt)
+        // var for day1 Icon
         var day1Temp = Math.round(((response.list[4].main.temp) -273) *1.8 +32)
         var day1Humidity = Math.round(response.list[4].main.humidity)
+
+        var day2Date = (response.list[12].dt_txt)
+// var for day2 Icon
         var day2Temp = Math.round(((response.list[12].main.temp) -273) *1.8 +32)
         var day2Humidity = Math.round(response.list[12].main.humidity)
+
+        var day3Date = (response.list[20].dt_txt)
+// var for day3 Icon
         var day3Temp= Math.round(((response.list[20].main.temp) -273) *1.8 +32)
         var day3Humidity = Math.round(response.list[20].main.humidity)
+
+        var day4Date = (response.list[28].dt_txt)
+// var for day4 Icon
         var day4Temp = Math.round(((response.list[28].main.temp) -273) *1.8 +32)
         var day4Humidity = Math.round(response.list[28].main.humidity)
+
+        var day5Date = (response.list[36].dt_txt)
+// var for day5 Icon
         var day5Temp = Math.round(((response.list[36].main.temp) -273) *1.8 +32)
         var day5Humidity = Math.round(response.list[36].main.humidity)
-        var day1Temp = Math.round(((response.list[4].main.temp) -273) *1.8 +32)
-        var day1Humidity = Math.round(response.list[4].main.humidity)
+     
         
         console.log
         // console.log(day1Temp, day2Temp, day3Temp, day4Temp, day5Temp)
@@ -95,27 +107,39 @@ function searchForCity(city) {
             $("#forecast-cards").append(card)
            
         }
-        // created and appended temp, date and humidity.  need to adjust the temp and humidity to .00 digits and also
+        // need to try and DRY up the code for the var for Date, Temp, and Humidity as well as appending
         // we pulled the day1DateDiv but it needs to be adjusted for proper formatting
 
         var day1DateDiv = $("<h5>").text(day1Date);
-
+// var for day 1 icon div
         var day1TempDiv = $("<h5>").text("Temp: " + day1Temp + " \u00B0" + "F");
         var day1HumidityDiv = $("<h5>").text("Humidity: " + day1Humidity +  "%");
+
+        var day2DateDiv = $("<h5>").text(day1Date);
+// var for day 2 icon div
         var day2TempDiv = $("<h5>").text("Temp: " + day2Temp + " \u00B0" + "F");
         var day2HumidityDiv = $("<h5>").text("Humidity: " + day2Humidity +  "%");
+
+        var day3DateDiv = $("<h5>").text(day1Date);
+// var for day 3 icon div
         var day3TempDiv = $("<h5>").text("Temp: " + day3Temp + " \u00B0" + "F");
         var day3HumidityDiv = $("<h5>").text("Humidity: " + day3Humidity +  "%");
+
+        var day4DateDiv = $("<h5>").text(day1Date);
+// var for day 4 icon div
         var day4TempDiv = $("<h5>").text("Temp: " + day4Temp + " \u00B0" + "F");
         var day4HumidityDiv = $("<h5>").text("Humidity: " + day4Humidity +  "%");
+
+        var day5DateDiv = $("<h5>").text(day1Date);
+// var for day 5 icon div
         var day5TempDiv = $("<h5>").text("Temp: " + day5Temp + " \u00B0" + "F");
         var day5HumidityDiv = $("<h5>").text("Humidity: " + day5Humidity +  "%");
 
         $(".card0").append(day1DateDiv, day1TempDiv, day1HumidityDiv)
-        $(".card1").append(day2TempDiv, day2HumidityDiv)
-        $(".card2").append(day3TempDiv, day3HumidityDiv)
-        $(".card3").append(day4TempDiv, day4HumidityDiv)
-        $(".card4").append(day5TempDiv, day5HumidityDiv)
+        $(".card1").append(day2DateDiv, day2TempDiv, day2HumidityDiv)
+        $(".card2").append(day3DateDiv, day3TempDiv, day3HumidityDiv)
+        $(".card3").append(day4DateDiv, day4TempDiv, day4HumidityDiv)
+        $(".card4").append(day5DateDiv, day5TempDiv, day5HumidityDiv)
 
     })
 }

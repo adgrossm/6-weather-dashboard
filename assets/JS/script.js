@@ -71,7 +71,7 @@ function searchForCity(city) {
         method: "GET"
     }).then(function (response) {
         console.log(response)
-
+       
         // create var for temp icon, temp, and humidity
         var day1Date = (response.list[4].dt_txt)
         // var for day1 Icon
@@ -99,14 +99,17 @@ function searchForCity(city) {
         var day5Humidity = Math.round(response.list[36].main.humidity)
      
         
-        console.log
+        
         // console.log(day1Temp, day2Temp, day3Temp, day4Temp, day5Temp)
         $("#forecast-cards").empty()
+        $(".5-day").append("5-Day Forecast")
+        // .prepend("<h2>" + "5-Day Forecast")
         for (var i = 0; i < 5; i++) {
-            var card = $("<div>").addClass("bg-primary col text-light mr-1").addClass(`card${i}`);
+            
+            var card = $("<div>").addClass("bg-primary col text-light py-3 rounded mr-1").addClass(`card${i}`);
                   
             $("#forecast-cards").append(card)
-           
+            
         }
         // need to try and DRY up the code for the var for Date, Temp, and Humidity as well as appending
         // we pulled the day1DateDiv but it needs to be adjusted for proper formatting

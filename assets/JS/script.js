@@ -6,8 +6,9 @@ $("#searchForm").on("submit", function (event) {
 
     var userInputCity = $("input").val();
 
-    var item = $("<div>").text(userInputCity).click(clickListItem)
-    $("#city-list").append(item)
+    var item = $("<td>").text(userInputCity).click(clickListItem)
+    $(".row").append(item)
+    // $("#city-list").append(item)
 
     searchForCity(userInputCity)
 });
@@ -102,12 +103,14 @@ function searchForCity(city) {
         
         // console.log(day1Temp, day2Temp, day3Temp, day4Temp, day5Temp)
         $("#forecast-cards").empty()
+        
+        $(".5-day").empty()  
         $(".5-day").append("5-Day Forecast")
         // .prepend("<h2>" + "5-Day Forecast")
         for (var i = 0; i < 5; i++) {
-            
+             
             var card = $("<div>").addClass("bg-primary col text-light py-3 rounded mr-1").addClass(`card${i}`);
-                  
+            
             $("#forecast-cards").append(card)
             
         }

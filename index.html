@@ -18,7 +18,7 @@
 <body>
   <header>
     <nav class="navbar navbar-dark bg-dark">
-      <span class="navbar-brand mb-0 pl-4">Weather Dashboard</span>
+      <span class="navbar-brand  mb-0 pl-4"><h1 class="display-4">Weather Dashboard</h1></span>
     </nav>
   </header>
   <!-- testing to see if just having a 12 column row works better for the header
@@ -36,8 +36,8 @@
           <!-- been trying to fix the responsive search box when it is reduced to around half screen size so the search box
                 doesn't go into the 2nd column area -->
           <input class="form-control mb-1 mr-2" type="search" placeholder="Search" aria-label="Search" required>
-          <button class="btn btn-outline-success  my-2 my-sm-0 " type="submit">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+          <button class="btn btn-primary  my-2 my-sm-0 " type="submit">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search " fill="currentColor"
               xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
                 d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
@@ -46,7 +46,12 @@
             </svg>
           </button>
         </form>
-        <div id="city-list"></div>
+        <!-- <div id="city-list"></div> -->
+        <table class="col-3 table table-striped row ">
+          <!-- <th class="row">
+
+          </th> -->
+        </table>
       </div>
 
       <!-- main area where the 5 day weather outlook will live with API -->

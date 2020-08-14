@@ -1,4 +1,4 @@
-var cityName = [];
+// var cityName = [];
 var date = moment().format("MMM Do YYYY");
 
 $("#searchForm").on("submit", function (event) {
@@ -7,7 +7,7 @@ $("#searchForm").on("submit", function (event) {
     var userInputCity = $("input").val();
 
     var item = $("<td>").text(userInputCity).click(clickListItem)
-    $(".row").append(item)
+    $(".table").append(item)
     // $("#city-list").append(item)
 
     searchForCity(userInputCity)
@@ -18,7 +18,10 @@ function searchForCity(city) {
     const API_KEY = "&appid=772aa38073453f8d8d0313dbbfa771e1"
     const UV_API_KEY = "?appid=772aa38073453f8d8d0313dbbfa771e1&lat="
     var weatherURL = BASE_ROUTE + "weather?q=" + city + API_KEY
-
+    
+    // var forecastTempIconURL = "http://openweathermap.org/img/wn/" + IconId + "2x.png"  
+    // var iconIdCurrent = (response.)
+    // var iconIdForecast = (response.)
     // this is the forecast call
     $.ajax({
         url: weatherURL,
@@ -32,8 +35,13 @@ function searchForCity(city) {
         // create var to change Kelvin to Far
         var currentTemp = Math.round(((response.main.temp) - 273) * 1.8 +32)
         //  var for weather icon
-        var weatherIcon = (response.weather[0].icon)
+        // var moviePoster = $("<img>").attr("src", response.Poster);
+        // *******************************  just added the code below on 8/13 11.43am need to find where the src is in the response
+        
+        var iconIdCurrent = (response.weather[0].icon)
+        var currentTempIconURL = "http://openweathermap.org/img/wn/" + iconIdCurrent + "@2x.png"    
         console.log(response.weather[0].icon)
+        var weatherIcon = $("<img>").attr("src", currentTempIconURL)
         // var for wind speed might need to convert to mph and chop the last 3 digits
         var windSpeed = Math.round((response.wind.speed)*2.237)
         // see below around line 50 for the var for the uv index
@@ -44,13 +52,15 @@ function searchForCity(city) {
         // console.log(latitude)// From response
         var longitude = (response.coord.lon) // From response
         // console.log(longitude)
+        
         // variable to store the uv for the location based on latitude and longitue
         var cityDiv = $("<h2>").text(city + "  (" + date + ")") ;
+        var currentIconDiv = $("<div>").append(weatherIcon);
         var tempDiv = $("<h4>").text("Temperature: " + currentTemp + " \u00B0" + "F");
         var humidityDiv = $("<h4>").text("Humidity: " + humidity+"%");
         var windDiv = $("<h4>").text("Wind Speed: " + windSpeed+" MPH");
         
-        $(".jumbotron").append(cityDiv, tempDiv, humidityDiv, windDiv);
+        $(".jumbotron").append(cityDiv, currentIconDiv, tempDiv, humidityDiv, windDiv);
 
         var uvURL = BASE_ROUTE + "uvi" + UV_API_KEY + latitude + "&lon=" + longitude
         // var uvURL = BASE_ROUTE + "forecast?q=" + latitude + longitude + API_KEY
@@ -75,6 +85,8 @@ function searchForCity(city) {
        
         // create var for temp icon, temp, and humidity
         var day1Date = (response.list[4].dt_txt)
+        
+        console.log(day1Date)
         // var for day1 Icon
         var day1Temp = Math.round(((response.list[4].main.temp) -273) *1.8 +32)
         var day1Humidity = Math.round(response.list[4].main.humidity)
@@ -122,22 +134,22 @@ function searchForCity(city) {
         var day1TempDiv = $("<h5>").text("Temp: " + day1Temp + " \u00B0" + "F");
         var day1HumidityDiv = $("<h5>").text("Humidity: " + day1Humidity +  "%");
 
-        var day2DateDiv = $("<h5>").text(day1Date);
+        var day2DateDiv = $("<h5>").text(day2Date);
 // var for day 2 icon div
         var day2TempDiv = $("<h5>").text("Temp: " + day2Temp + " \u00B0" + "F");
         var day2HumidityDiv = $("<h5>").text("Humidity: " + day2Humidity +  "%");
 
-        var day3DateDiv = $("<h5>").text(day1Date);
+        var day3DateDiv = $("<h5>").text(day3Date);
 // var for day 3 icon div
         var day3TempDiv = $("<h5>").text("Temp: " + day3Temp + " \u00B0" + "F");
         var day3HumidityDiv = $("<h5>").text("Humidity: " + day3Humidity +  "%");
 
-        var day4DateDiv = $("<h5>").text(day1Date);
+        var day4DateDiv = $("<h5>").text(day4Date);
 // var for day 4 icon div
         var day4TempDiv = $("<h5>").text("Temp: " + day4Temp + " \u00B0" + "F");
         var day4HumidityDiv = $("<h5>").text("Humidity: " + day4Humidity +  "%");
 
-        var day5DateDiv = $("<h5>").text(day1Date);
+        var day5DateDiv = $("<h5>").text(day5Date);
 // var for day 5 icon div
         var day5TempDiv = $("<h5>").text("Temp: " + day5Temp + " \u00B0" + "F");
         var day5HumidityDiv = $("<h5>").text("Humidity: " + day5Humidity +  "%");

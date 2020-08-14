@@ -18,15 +18,13 @@
 <body>
   <header>
     <nav class="navbar navbar-dark bg-dark">
-      <span class="navbar-brand mb-0 pl-4"><h1 class="display-4">Weather Dashboard</h1></span>
+      <span class="navbar-brand mb-0 pl-4">
+        <h1 class="display-4">Weather Dashboard</h1>
+      </span>
     </nav>
   </header>
-  <!-- testing to see if just having a 12 column row works better for the header
-           -->
-  <header>
-    <!-- <div class="container-fluid"> -->
-      <!-- <div class="row  weather">Weather Dashboard</div> -->
-  </header>
+  
+
   <!-- section to hold the side search and main viewing area for local 5 day weather -->
   <div class="container-fluid">
     <div class="row">
@@ -36,7 +34,7 @@
           <!-- been trying to fix the responsive search box when it is reduced to around half screen size so the search box
                 doesn't go into the 2nd column area -->
 
-                <!-- I tried removing the Bootstrap width: auto styling with a CSS overide but it doesn't seem to work 
+          <!-- I tried removing the Bootstrap width: auto styling with a CSS overide but it doesn't seem to work 
                 to make sure the search box adjusts based on size. -->
           <input class="form-control mb-1 mr-2" type="search" placeholder="Search" aria-label="Search" required>
           <button class="btn btn-primary  my-2 my-sm-0 " type="submit">
@@ -50,7 +48,7 @@
           </button>
         </form>
         <!-- <div id="city-list"></div> -->
-        <table class="col-3 table table-striped row ">
+        <table class="col-3 pastCities">
           <!-- <th class="row">
 
           </th> -->
@@ -59,9 +57,9 @@
 
       <!-- main area where the 5 day weather outlook will live with API -->
       <div class="col-9">
-        <div class="jumbotron"></div>
+        <div class="jumbotron" ></div>
         <!-- <h2>5-Day Forecast</h2> -->
-        <div class="5-day "style="font-size: 30px; font-weight: bold"></div>
+        <div class="5-day " style="font-size: 30px; font-weight: bold"></div>
         <div class="row mb-2" id="forecast-cards">
         </div>
       </div>

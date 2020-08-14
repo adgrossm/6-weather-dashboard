@@ -6,8 +6,8 @@ $("#searchForm").on("submit", function (event) {
 
     var userInputCity = $("input").val();
 
-    var item = $("<td>").text(userInputCity).click(clickListItem)
-    $(".table").append(item)
+    var item = $("<button>").addClass("btn btn-primary mt-2").text(userInputCity).click(clickListItem)
+    $(".pastCities").append(item)
     // $("#city-list").append(item)
 
     searchForCity(userInputCity)
@@ -60,7 +60,7 @@ function searchForCity(city) {
         var humidityDiv = $("<h4>").text("Humidity: " + humidity+"%");
         var windDiv = $("<h4>").text("Wind Speed: " + windSpeed+" MPH");
         
-        $(".jumbotron").append(cityDiv, currentIconDiv, tempDiv, humidityDiv, windDiv);
+        $(".jumbotron").attr("style", "background-color: grey").append(cityDiv, currentIconDiv, tempDiv, humidityDiv, windDiv);
 
         var uvURL = BASE_ROUTE + "uvi" + UV_API_KEY + latitude + "&lon=" + longitude
         // var uvURL = BASE_ROUTE + "forecast?q=" + latitude + longitude + API_KEY
@@ -81,7 +81,7 @@ function searchForCity(city) {
         url: forecastURL,
         method: "GET"
     }).then(function (response) {
-        // console.log(response)
+        console.log(response)
        
         // create var for temp icon, temp, and humidity
         

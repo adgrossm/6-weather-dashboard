@@ -11,7 +11,7 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <link rel="stylesheet" href="./assets/CSS/style.css">
+  <!-- <link rel="stylesheet" href="./assets/CSS/style.css"> -->
   <title>Weather Dashboard</title>
 </head>
 
@@ -35,6 +35,9 @@
         <form class="form-inline my-2 my-lg-0" id="searchForm">
           <!-- been trying to fix the responsive search box when it is reduced to around half screen size so the search box
                 doesn't go into the 2nd column area -->
+
+                <!-- I tried removing the Bootstrap width: auto styling with a CSS overide but it doesn't seem to work 
+                to make sure the search box adjusts based on size. -->
           <input class="form-control mb-1 mr-2" type="search" placeholder="Search" aria-label="Search" required>
           <button class="btn btn-primary  my-2 my-sm-0 " type="submit">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search " fill="currentColor"
@@ -59,7 +62,7 @@
         <div class="jumbotron"></div>
         <!-- <h2>5-Day Forecast</h2> -->
         <div class="5-day "style="font-size: 30px; font-weight: bold"></div>
-        <div class="row mb-3" id="forecast-cards">
+        <div class="row mb-2" id="forecast-cards">
         </div>
       </div>
       <!-- will need to create in CSS the blue box that holds the 4 pieces of info -->

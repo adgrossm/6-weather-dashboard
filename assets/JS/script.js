@@ -39,7 +39,7 @@ function searchForCity(city) {
         // *******************************  just added the code below on 8/13 11.43am need to find where the src is in the response
         
         var iconIdCurrent = (response.weather[0].icon)
-        var currentTempIconURL = "http://openweathermap.org/img/wn/" + iconIdCurrent + "@2x.png"    
+        var currentTempIconURL = "https://openweathermap.org/img/wn/" + iconIdCurrent + "@2x.png"    
         // console.log(response.weather[0].icon)
         var weatherIcon = $("<img>").attr("src", currentTempIconURL)
         // var for wind speed might need to convert to mph and chop the last 3 digits
@@ -90,7 +90,7 @@ function searchForCity(city) {
         // pull the icon ID 1 from API
         var iconIdForecast = (response.list[4].weather[0].icon)
     //    create the URL for the Icon 1
-        var forecastTempIconURL = "http://openweathermap.org/img/wn/" + iconIdForecast + "@2x.png" ;
+        var forecastTempIconURL = "https://openweathermap.org/img/wn/" + iconIdForecast + "@2x.png" ;
 // day 1 card info to be passed to the div
         var day1Date = moment().add(1, 'days').format("MM-DD-YYYY")
         // (response.list[4].dt_txt)
@@ -102,7 +102,7 @@ function searchForCity(city) {
 
 
         var iconId2Forecast = (response.list[12].weather[0].icon)
-        var forecastTemp2IconURL = "http://openweathermap.org/img/wn/" + iconId2Forecast + "@2x.png" ;
+        var forecastTemp2IconURL = "https://openweathermap.org/img/wn/" + iconId2Forecast + "@2x.png" ;
         var day2Date = moment().add(2, 'days').format("MM-DD-YYYY")
         var day2Icon = $("<img>").attr("src", forecastTemp2IconURL)
         var day2Temp = Math.round(((response.list[12].main.temp) -273) *1.8 +32)
@@ -111,7 +111,7 @@ function searchForCity(city) {
         // Day 3   info
         var iconId3Forecast = (response.list[20].weather[0].icon)
         //    create the URL for the Icon 1
-        var forecastTemp3IconURL = "http://openweathermap.org/img/wn/" + iconId3Forecast + "@2x.png" ;
+        var forecastTemp3IconURL = "https://openweathermap.org/img/wn/" + iconId3Forecast + "@2x.png" ;
         var day3Date = moment().add(3, 'days').format("MM-DD-YYYY")
         var day3Icon = $("<img>").attr("src", forecastTemp3IconURL)
         var day3Temp= Math.round(((response.list[20].main.temp) -273) *1.8 +32)
@@ -119,7 +119,7 @@ function searchForCity(city) {
 
 
         var iconId4Forecast = (response.list[28].weather[0].icon)
-        var forecastTemp4IconURL = "http://openweathermap.org/img/wn/" + iconId4Forecast + "@2x.png" ;
+        var forecastTemp4IconURL = "https://openweathermap.org/img/wn/" + iconId4Forecast + "@2x.png" ;
         var day4Date = moment().add(4, 'days').format("MM-DD-YYYY")
 // var for day4 Icon
         var day4Icon = $("<img>").attr("src", forecastTemp4IconURL)
@@ -128,7 +128,7 @@ function searchForCity(city) {
 
 
         var iconId5Forecast = (response.list[36].weather[0].icon)
-        var forecastTemp5IconURL = "http://openweathermap.org/img/wn/" + iconId5Forecast + "@2x.png" ;
+        var forecastTemp5IconURL = "https://openweathermap.org/img/wn/" + iconId5Forecast + "@2x.png" ;
         var day5Date = moment().add(5, 'days').format("MM-DD-YYYY")
 // var for day5 Icon
         var day5Icon = $("<img>").attr("src", forecastTemp5IconURL)

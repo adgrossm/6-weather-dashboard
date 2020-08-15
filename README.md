@@ -1,6 +1,6 @@
 # 6-weather-dashboard
 5 day weather outlook using open weather API. The site was created utilizing HTML, jQuery, Bootstrap, moment.js and JavaScript. There was no use of CSS. 
-![weather dashboard screenshot](assets/images.screenshot.jpg)
+
 
 <img src="./assets/images/screenshot.JPG" alt="screenshot of dashboard">
 See the deployed app here: https://adgrossm.github.io/6-weather-dashboard/

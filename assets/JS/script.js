@@ -14,7 +14,7 @@ $("#searchForm").on("submit", function (event) {
 });
 
 function searchForCity(city) {
-    const BASE_ROUTE = "http://api.openweathermap.org/data/2.5/"
+    const BASE_ROUTE = "https://api.openweathermap.org/data/2.5/"
     const API_KEY = "&appid=772aa38073453f8d8d0313dbbfa771e1"
     const UV_API_KEY = "?appid=772aa38073453f8d8d0313dbbfa771e1&lat="
     var weatherURL = BASE_ROUTE + "weather?q=" + city + API_KEY
